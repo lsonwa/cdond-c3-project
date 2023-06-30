@@ -118,7 +118,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: apt-get install -y tar gzip
+          command: yum install -y tar gzip
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -196,3 +196,5 @@ workflows:
           filters:
             branches:
               only: [master]
+      - configure-infrastructure:
+          requires: [deploy-infrastructure]
